@@ -1,10 +1,6 @@
 from django.test import TestCase as DjangoTestCase
 from django.test.client import RequestFactory
 
-def generate_random_image():
-    title = "Random Image %d" % random.randint(1000000, 2000000)
-    url = "http://example.com/%d" % random.randint(1000000, 2000000)
-    return Image.objects.create(title=title, url=url)
 
 class TestCase(DjangoTestCase):
     def setUp(self):
