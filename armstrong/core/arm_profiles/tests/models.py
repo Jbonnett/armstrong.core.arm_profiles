@@ -32,7 +32,7 @@ class UserProfileTestCase(TestCase):
 
     def test_get_update_form(self):
         response = self.c.get(reverse('profile_update'))
-        self.assertEqual('form' in response.context, True)
+        self.assertTrue('form' in response.context)
 
     def test_deny_update_form(self):
         self.c.logout()
