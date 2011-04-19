@@ -40,7 +40,7 @@ class UserProfileTestCase(TestCase):
         self.assertRedirects(response, getattr(settings, 'LOGIN_URL') + "?next=/profiles/update/")
 
     def test_no_profile_found(self):
-        response = self.c.get('/crocker/')
+        response = self.c.get('/profiles/crocker/')
         self.assertEqual(response.status_code, 404)
 
     def test_non_public_profile(self):
