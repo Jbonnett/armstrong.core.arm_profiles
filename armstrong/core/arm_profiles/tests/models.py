@@ -37,10 +37,10 @@ class UserProfileTestCase(TestCase):
     def test_deny_update_form(self):
         self.c.logout()
         response = self.c.get(reverse('profile_update'))
-        self.assertRedirects(response, getattr(settings, 'LOGIN_URL') + "?next=/profiles/update/")
+        self.assertRedirects(response, '%s?next=%s' % (getattr(settings, 'LOGIN_URL'), reverse('profile_update')))
 
     def test_no_profile_found(self):
-        response = self.c.get('/profiles/crocker/')
+        response = self.c.get(reverse('profile_detail', kwargs={'username':'crocker'}))
         self.assertEqual(response.status_code, 404)
 
     def test_non_public_profile(self):
