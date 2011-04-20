@@ -10,7 +10,7 @@ class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
     active = models.BooleanField(default=True)
     public = models.BooleanField(default=True)
-    location = models.CharField(max_length=40, blank=True)
+    location = models.CharField(max_length=100, blank=True)
     about = models.TextField(blank=True)
     website = models.URLField(blank=True, verify_exists=False)
     photo = ImageField(upload_to=getattr(settings,
