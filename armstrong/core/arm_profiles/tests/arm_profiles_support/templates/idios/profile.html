@@ -1,0 +1,8 @@
+<p>Username: {{ profile.user.username }}</p>
+
+{% if profile.public %}
+
+    <p>Name: {{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+    <p>Email: {{ profile.user.email }}</p>
+
+{% endif %}
