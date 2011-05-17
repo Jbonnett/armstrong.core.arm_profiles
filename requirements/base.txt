@@ -1,2 +1,3 @@
 django>=1.3
--e git+https://github.com/eldarion/idios.git@f59b87c62dc56777ea6ecf42b8daf3f7355af85a#egg=idios-0.2a1.dev2-py2.6-dev
+-e git+https://github.com/petergitz/idios.git@7bcc9495a152d69e8bf092bfec3c9ecea609ef1f#egg=idios
+sorl-thumbnail==11.05.2
