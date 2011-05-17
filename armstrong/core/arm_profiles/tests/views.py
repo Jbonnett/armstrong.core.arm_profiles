@@ -1,12 +1,10 @@
 from django.contrib.auth.models import User
 from django.test.client import Client
 from django.core.urlresolvers import reverse
-from django.conf import settings
-from ._utils import TestCase
 from ..models import UserProfile
+from ._utils import TestCase
 
-
-class UserProfileTestCase(TestCase):
+class ProfileViewsTestCase(TestCase):
     def setUp(self):
         self.user = User.objects.create_user('otis',
             'otis@armstrongcms.org', 'pw')
@@ -20,16 +18,16 @@ class UserProfileTestCase(TestCase):
         self.assertEqual(self.c.login(username='otis', password='pw'), True)
 
     def test_get_absolute_url(self):
-        self.assertEqual(self.user.get_absolute_url(), '/profiles/profile/%s/' % self.user.username)
+        self.assertEqual(self.user.get_absolute_url(), '/profiles/profile/%s/'
+                % self.user.username)
 
     def test_detail_view(self):
         response = self.c.get(self.user.get_absolute_url())
-        self.assertContains(response, self.user.username)
-        self.assertContains(response, self.user.first_name)
-        self.assertContains(response, self.user.last_name)
+        self.assertEqual(self.user.get_profile(), response.context['profile'])
 
     def test_no_profile_found(self):
-        response = self.c.get(reverse('profile_detail', kwargs={'username':'crocker'}))
+        response = self.c.get(reverse('profile_detail',
+                kwargs={'username':'crocker'}))
         self.assertEqual(response.status_code, 404)
 
     def test_non_public_profile(self):
