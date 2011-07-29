@@ -41,7 +41,7 @@ Foundation`_.  The first release is scheduled for June, 2011.
 
 To follow development, be sure to join the `Google Group`_.
 
-``armstrong.cli`` is part of the `Armstrong`_ project.  You're
+``armstrong.core.arm_profiles`` is part of the `Armstrong`_ project.  You're
 probably looking for that.
 
 .. _Texas Tribune: http://www.texastribune.org/
